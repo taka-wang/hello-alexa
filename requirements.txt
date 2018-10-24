@@ -20,3 +20,4 @@ six==1.11.0
 Unidecode==1.0.22
 urllib3==1.24
 Werkzeug==0.14.1
+gunicorn==19.9.0
