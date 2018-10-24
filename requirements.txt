@@ -5,8 +5,9 @@ cffi==1.11.5
 chardet==3.0.4
 Click==7.0
 cryptography==2.3.1
-Flask>=0.12.3
 Flask-Ask==0.9.8
+Flask>=0.12.3
+gunicorn==19.9.0
 idna==2.7
 ItsDangerous==1.0.0
 Jinja2==2.10
@@ -20,4 +21,3 @@ six==1.11.0
 Unidecode==1.0.22
 urllib3==1.24
 Werkzeug==0.14.1
-gunicorn==19.9.0

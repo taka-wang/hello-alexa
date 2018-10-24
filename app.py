@@ -1,9 +1,5 @@
 from flask import Flask
-from flask_ask import Ask, statement, question, session
-import json
-import requests
-import time
-import unidecode
+from flask_ask import Ask, question, session, statement
 
 app = Flask(__name__)
 ask = Ask(app, "/")
@@ -26,6 +22,6 @@ def yes_intent():
 def no_intent():
     msg = 'I am not sure why you asked me to run then, but okay... bye'
     return statement(msg)
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
