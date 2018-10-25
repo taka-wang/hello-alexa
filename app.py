@@ -1,5 +1,6 @@
 import logging
-from flask import Flask
+import os
+from flask import Flask, json, render_template
 from flask_ask import Ask, question, session, statement
 
 app = Flask(__name__)
@@ -10,11 +11,41 @@ logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 def homepage():
     return "Hi there, how ya doin?"
 
+
 @ask.launch
-def start_skill():
+def launch():
+    card_title = render_template('card_title')
+    question_text = render_template('welcome')
+    reprompt_text = render_template('welcome_reprompt')
+    return question(question_text).reprompt(reprompt_text).simple_card(card_title, question_text)
+
+
+
+@ask.launch
+def launch():
     msg = 'Hello there, would you like to know the InWin?'
     msg2 = "I didn't get that. Whould you like to know the brand philosophy of InWin"
-    return question(msg).reprompt(msg2).simple_card('Ask Apple', msg)
+    msg = "Hello there, I am your assistant, What's your name?"
+    msg2 = "mmm, Can you tell me your name?"
+    card_title = render_template('card_title')
+    question_text = render_template('welcome')
+    reprompt_text = render_template('welcome_reprompt')
+    return question(question_text).reprompt(reprompt_text).simple_card(card_title, question_text)
+
+@ask.launch
+def launch():
+    card_title = render_template('card_title')
+    question_text = render_template('welcome')
+    reprompt_text = render_template('welcome_reprompt')
+    return question(question_text).reprompt(reprompt_text).simple_card(card_title, question_text)
+
+@ask.intent("introductionIntent",  mapping={'username': 'username'})
+def introduction_intent():
+    session.attributes["username"] = username
+    card_title = render_template('card_title')
+    question_text = render_template('introduction', username=username)
+    reprompt_text = render_template('introduction_reprompt', username=username)
+    return question(question_text).reprompt(reprompt_text).simple_card(card_title, question_text)
 
 @ask.intent("YesIntent")
 def yes_intent():
@@ -23,9 +54,9 @@ def yes_intent():
 
 @ask.intent("NoIntent")
 def no_intent():
-    msg = 'I am not sure why you asked me to run then, but okay... bye'
-    return statement(msg).simple_card('Bye', msg)
-
+    username = session.attributes.get("username")
+    bye_text = render_template('bye', username=username)
+    return statement(bye_text).simple_card('Bye', msg)
 
 @ask.intent("ConnectIntent", mapping={'serialno': 'serialno'})
 def connect_intent(serialno):

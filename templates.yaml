@@ -1,0 +1,15 @@
+card_title: Ask Inwin
+
+welcome: |
+    Hello there, I am Ask In Win, What's your name?
+
+welcome_reprompt: mmm, Can you tell me your name?
+
+introduction: |
+    Hello {{ username }}, would you like to know the InWin?
+
+introduction_reprompt: |
+    {{ username }} I didn't get that. Whould you like to know the brand philosophy of InWin?
+
+bye: |
+    I am not sure why you asked me to run then, but okay... bye {{ username }}
