@@ -1,0 +1,24 @@
+card_title: Ask Inwin
+
+welcome: |
+    Hello there, I am Ask InWin, What's your name?
+
+welcome_reprompt: mmm, Can you tell me your name?
+
+introduction: |
+    Hello {{ username }}, would you like to know the InWin?
+
+introduction_reprompt: |
+    {{ username }} I didn't get that. Whould you like to know the brand philosophy of InWin?
+
+bye: |
+    I am not sure why you asked me to run then, but okay... bye {{ username }}
+
+help: |
+    You can ask me to tell you the brand philosophy of InWin, would you like to know the InWin now?
+
+philosophy: |
+    Contemporary & Innovative defines the InWin brand. It reflects in the appearance and features of our products. With an artistic approach in mind, InWin products integrate technology, functionality, user-friendly, safety, practicality and overall quality, providing an entirely new experience with each product.
+
+connect: |
+    Ok, I will connect your echo to {{ a }} {{ b }} {{ c }} {{ d }}

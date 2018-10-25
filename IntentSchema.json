@@ -24,6 +24,36 @@
                     "samples": [
                         "help"
                     ]
+                },
+                {
+                    "name": "ConnectIntent",
+                    "slots": [
+                        {
+                            "name": "serialno",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "connect {serialno}",
+                        "connect my echo to {serialno}"
+                    ]
+                },
+                {
+                    "name": "introductionIntent",
+                    "slots": [
+                        {
+                            "name": "username",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "call me {username}",
+                        "{username} is my name",
+                        "you can call me {username}",
+                        "I'm {username}",
+                        "my name is {username}",
+                        "I am {username} "
+                    ]
                 }
             ],
             "types": []
