@@ -14,22 +14,29 @@ def homepage():
 def start_skill():
     msg = 'Hello there, would you like to know the InWin?'
     msg2 = "I didn't get that. Whould you like to know the brand philosophy of InWin"
-    return question(msg).reprompt(msg2).simple_card('Ask Inwin', msg)
+    return question(msg).reprompt(msg2).simple_card('Ask Apple', msg)
 
 @ask.intent("YesIntent")
 def yes_intent():
     msg = 'Contemporary & Innovative defines the InWin brand. It reflects in the appearance and features of our products. With an artistic approach in mind, InWin products integrate technology, functionality, user-friendly, safety, practicality and overall quality, providing an entirely new experience with each product.'
-    return statement(msg).simple_card('Ask Inwin', msg)
+    return statement(msg).simple_card('Brand Philosophy', msg)
 
 @ask.intent("NoIntent")
 def no_intent():
     msg = 'I am not sure why you asked me to run then, but okay... bye'
-    return statement(msg).simple_card('Ask Inwin', msg)
+    return statement(msg).simple_card('Bye', msg)
+
+
+@ask.intent("ConnectIntent", mapping={'serialno': 'serialno'})
+def connect_intent(serialno):
+    msg = 'Ok, I will connect you echo to {} {} {} {}'.format(
+        serialno[0], serialno[1], serialno[2], serialno[3])
+    return statement(msg).simple_card('Connect', msg)
 
 @ask.intent('AMAZON.HelpIntent')
 def help():
-    speech_text = 'You can ask me to tell you the brand philosophy of InWin!'
-    return question(speech_text).reprompt(speech_text).simple_card('Ask Inwin', speech_text)
+    speech_text = 'You can ask me to tell you the brand philosophy of InWin, would you like to know the InWin now?'
+    return question(speech_text).reprompt(speech_text).simple_card('Help', speech_text)
 
 @ask.session_ended
 def session_ended():

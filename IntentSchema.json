@@ -1,0 +1,32 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "apple",
+            "intents": [
+                {
+                    "name": "YesIntent",
+                    "slots": [],
+                    "samples": [
+                        "sure",
+                        "yes"
+                    ]
+                },
+                {
+                    "name": "NoIntent",
+                    "slots": [],
+                    "samples": [
+                        "go away",
+                        "no"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "help"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
